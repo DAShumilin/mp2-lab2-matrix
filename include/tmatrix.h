@@ -156,10 +156,10 @@ public:
       return result;
   }
 
-  T operator*(const TDynamicVector& v) noexcept(noexcept(T()))
+  T operator*(const TDynamicVector& v)
   {
-      if (sz != v.sz)
-          throw logic_error("Error");
+      if (sz != v.size())
+          throw "Error";
       T result = pMem[0] * v.pMem[0];
       for (size_t i = 1; i < sz; i++) {
           result = result + pMem[i] * v.pMem[i];
@@ -218,8 +218,6 @@ public:
 
   TDynamicVector<T> operator*(const T& val)
   {
-      if (sz != m.sz)
-          throw "Error";
       TDynamicMatrix res(sz);
       for (size_t i = 0; i < sz; i++)
           res[i] = (*this)[i] * val;
@@ -228,7 +226,7 @@ public:
 
   TDynamicVector<T> operator*(const TDynamicVector<T>& v)
   {
-      if (sz != v.sz)
+      if (sz != v.size())
           throw logic_error("Error");
       TDynamicVector res(sz);
       for (size_t i = 0; i < sz; i++) {
@@ -255,6 +253,8 @@ public:
 
   TDynamicMatrix operator*(const TDynamicMatrix& m)
   {
+      if (sz != m.size())
+          throw logic_error("Error");
       TDynamicMatrix res(sz);
       for (size_t i = 0; i < sz; i++)
           res[i] = (*this)[i] * m[i];
