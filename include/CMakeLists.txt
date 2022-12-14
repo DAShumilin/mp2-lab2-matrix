@@ -1,5 +1,7 @@
-set(target ${MP2_LIBRARY})
+set(target ${MP2_CUSTOM_PROJECT})
+
+project(${target})
 
 file(GLOB hdrs "*.h*")
 
-add_custom_target(${target} STATIC ${hdrs})
+add_custom_target(${target} SOURCES ${hdrs})

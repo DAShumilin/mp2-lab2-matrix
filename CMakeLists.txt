@@ -9,6 +9,7 @@ include(CTest)
 enable_testing()  # defines BUILD_TESTING
 
 set(MP2_TESTS   "test_${PROJECT_NAME}")
+set(MP2_CUSTOM_PROJECT "${PROJECT_NAME}")
 set(MP2_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 add_subdirectory(include)
