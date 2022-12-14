@@ -255,8 +255,6 @@ public:
 
   TDynamicMatrix operator*(const TDynamicMatrix& m)
   {
-      if (sz != m.sz) 
-          throw "Error";
       TDynamicMatrix res(sz);
       for (size_t i = 0; i < sz; i++)
           res[i] = (*this)[i] * m[i];
