@@ -228,7 +228,7 @@ public:
   {
       if (sz != v.size())
           throw logic_error("Error");
-      TDynamicVector res(sz);
+      TDynamicVector<T> res(sz);
       for (size_t i = 0; i < sz; i++) {
           res[i] = (*this)[i] * v;
       }
